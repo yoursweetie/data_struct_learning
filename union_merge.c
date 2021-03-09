@@ -29,12 +29,15 @@ void ListInit(List *list)
     for (int i = 0; i < list->length; i++)
     {
         /* 如果在DEBUG模式下,直接给元素赋简单的值 */
+#if DEBUG
         list->arr[i] = i * 2;
+#else
         /*
          * 如果不是在DEBUG模式下,
          * 产生小于50的随机数,初始化list中的arr数组
          */
         list->arr[i] = rand() % 50;
+#endif
     }
 
 }
@@ -100,7 +103,6 @@ void ListUnion(List *La, List Lb)
     for (i = 0; i < Lb_len; i++)
     {
         GetElem(Lb, i, &e);
-        printf("e = %d\n", e);
         if (!LocateElem(La, e, equal))
         {
             ListInsert(La, ++La_len, e);
