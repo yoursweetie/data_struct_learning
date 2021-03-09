@@ -24,7 +24,7 @@ void ListCreat(List* list, int length)
 }
 
 /* 为list中的元素赋值 */
-void ListInit(List *list)
+void MyListInit(List *list)
 {
     for (int i = 0; i < list->length; i++)
     {
@@ -170,8 +170,8 @@ int main()
     ListCreat(&L2, 12);
 
     /* 初始化list中的arr数组 */
-    ListInit(&L1);
-    ListInit(&L2);
+    MyListInit(&L1);
+    MyListInit(&L2);
 
     printf("****** Function union ******\n");
 
